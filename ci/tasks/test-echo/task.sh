@@ -1,23 +1,11 @@
 #!/bin/bash
 
-set -e # fail fast
-#   set -x # print commands
+set -e -u -x # fail fast
 
-whoami;
-
-which npm;
-
-
-
-# echo ""
-#echo " .. upgrading 'npm' "
-#echo ""
-#npm install -g npm
-
-#echo ""
-#echo " .. install 'newman' "
-#echo ""
-#npm install -g newman
+echo ""
+echo " .. install 'newman' "
+echo ""
+npm install -g newman
 
 echo ""
 echo " .. Running newman tests"
@@ -26,7 +14,7 @@ echo ""
 cd service-repo
 
 # execute newman tests
-#       newman run PostmanEcho.postman_collection
+newman run src/test/resources/PostmanEcho.postman_collection
 
 echo ""
 echo " Build completed!!!"

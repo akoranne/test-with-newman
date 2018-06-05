@@ -10,20 +10,20 @@ image_resource:
 inputs:
   - name: service-repo
 
-# run:
-#  path: ./service-repo/ci/tasks/test-echo/task.sh
+run:
+  path: sh
+  args: [ "./service-repo/ci/tasks/test-echo/task.sh" ]
 
 #run:
 #  path: ls
 #  args: [ "-alR" ]
 
-run:
-  path: sh
-  args:
-  - -c
-  - |
-    set -eu
-
-    pwd
-    ls -l
-
+#run:
+#  path: sh
+#  args:
+#  - -c
+#  - |
+#    set -eu
+#
+#    pwd
+#    ls -l
