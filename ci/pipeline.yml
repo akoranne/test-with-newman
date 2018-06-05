@@ -1,0 +1,19 @@
+# pipeline for test-with-newman
+
+resources:
+- name: service-repo
+  type: git
+  source:
+    uri: https://github.com/akoranne/test-with-newman.git
+    branch: master
+
+jobs:
+- name: test-postman-echo
+  public: true
+  serial: true
+  plan:
+  - get: service-repo
+    trigger: true
+  - task: run-test
+    privileged: true
+    file: service-repo/ci/tasks/test-echo/task.yml
