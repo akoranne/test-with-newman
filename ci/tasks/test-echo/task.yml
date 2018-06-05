@@ -11,4 +11,4 @@ inputs:
   - name: service-repo
 
 run:
-  path: service-repo/ci/tasks/build-service/task.sh
+  path: service-repo/ci/tasks/test-echo/task.sh
