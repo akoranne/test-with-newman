@@ -8,7 +8,7 @@ resources:
     branch: master
 
 jobs:
-- name: test-postman-echo
+- name: test-inline-task
   public: true
   serial: true
   plan:
