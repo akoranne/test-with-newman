@@ -1,0 +1,38 @@
+# pipeline for test-with-newman
+
+resources:
+- name: service-repo
+  type: git
+  source:
+    uri: https://github.com/akoranne/test-with-newman.git
+    branch: master
+
+jobs:
+- name: test-postman-echo
+  public: true
+  serial: true
+  plan:
+  - get: service-repo
+    trigger: true
+
+  - task: run-task
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: node
+          tag: 9.11.1-alpine
+      inputs:
+      - name: service-repo
+      outputs:
+      - name: output
+      run:
+        path: sh
+        args:
+        - -c
+        - |
+          set -eu
+          ls -lR service-repo
+          pwd
+

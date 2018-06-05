@@ -14,26 +14,6 @@ jobs:
   plan:
   - get: service-repo
     trigger: true
+
   - task: run-test
     file: service-repo/ci/tasks/test-echo/task.yml
-  - task: run-test2
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: node
-          tag: 9.11.1-alpine
-      inputs:
-      - name: service-repo
-      outputs:
-      - name: output
-      run:
-        path: sh
-        args:
-        - -c
-        - |
-          set -eu
-          ls -lR service-repo
-          pwd
-
