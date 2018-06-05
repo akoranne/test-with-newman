@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e # fail fast
-#	set -x # print commands
+set -x # print commands
 
 echo ""
 echo " .. upgrading 'npm' "
